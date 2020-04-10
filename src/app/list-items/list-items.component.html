@@ -1,0 +1,29 @@
+<div class="super-box list-box flex-3 h-100-p flex-column">
+    <div class="flex flex-wrap mb-12 mt-12" style="overflow-y: auto;">
+        <div class="box-item" *ngFor="let item of listItems; let i = index" (click)="click(i)">        
+            <div class="box-img"
+                [style.backgroundImage]="'url(/assets/img/items/'+ item.imgUrl +')'"></div>
+            <div class="p-4">
+                <div class="box-label">{{item.name}}</div>
+                <div class="box-price">{{item.price}}</div>
+            </div> 
+        </div>            
+    </div>
+</div>
+
+<div class="add-box" *ngIf="setQtd">
+    <div class="add-input-box">
+        <div class="">
+            <input type="number" name="inputValue" [(ngModel)]="inputValue" 
+             class="input-add" #qtdInput (keydown)="keyAddInput($event)" (focus)="focusInput()"> 
+        </div>
+        <div>
+            <app-keyboard (eventKeyUser)="appKeyboardEvent($event)"></app-keyboard>
+        </div>
+        <div class="flex mt-24">
+            <button class="act-button mr-4" (click)="addBtnAction('cancel')">Cancel</button>
+            <button class="act-button act-accent ml-4" (click)="addBtnAction('confirm')">Confirm</button>
+        </div>
+    </div>
+</div>
+      

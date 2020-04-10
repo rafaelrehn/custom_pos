@@ -1,0 +1,23 @@
+@import './src/colors.scss';
+
+.super-btn{
+    background: $color1;
+    color: $color0;
+    color: white;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    opacity: 0.7;
+    transition: all .2s ease;
+    cursor: pointer;
+    i{
+        font-size: 24px;
+    }
+
+    &:hover{
+        background: $focus;
+        opacity: 1;
+    }
+}

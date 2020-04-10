@@ -1,0 +1,15 @@
+@import './src/colors.scss';
+.menu-header{
+    border-bottom: 1px solid white;
+}
+
+.menu-item{
+    padding-left: 8px;
+    transition: all .2s ease;
+    cursor: pointer;
+    &:hover{
+        background: $focus;
+        color: $color0; 
+        opacity: 1;
+    }
+}

@@ -1,0 +1,38 @@
+@import './src/colors.scss';
+
+.card-box{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card{
+    width: 80px;
+    height: 40px;
+    margin-right: 8px;
+    border-radius: 4px;
+    box-shadow: 2px 2px $color1;
+}
+
+.card-visa{
+    background: url(/assets/img/visa.jpg);
+    background-position: center;
+    background-size: 173%;
+}
+.card-mastercard{
+    background: url(/assets/img/mastercard.jpg);
+    background-size: 139%;
+    background-position-x: -14px;
+    background-position-y: -19px;
+}
+.card-elo{
+    background: url(/assets/img/elo.png);
+    background-position: center;
+    background-size: 100%;
+}
+.card-banricompras{
+    background: url(/assets/img/banricompras.jpg);
+    background-position: center;
+    background-size: 68%;
+    background-repeat: no-repeat;
+    background-color: white;
+}

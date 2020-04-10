@@ -1,0 +1,75 @@
+@import './src/colors.scss';
+
+.box-item{
+    height: 140px;
+    background-color: $color3;
+    margin-left: 12px;
+    margin-bottom: 12px;
+    max-width: 140px;
+    min-width: 110px;
+    flex: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 2px $color1;
+    transition: all .2s ease;
+    opacity: 0.8;
+    cursor: pointer;
+    &:hover{
+        opacity: 1;
+        background-color: $focus;
+    }
+    .box-img{
+        
+        height: 102px;
+        background-position: center;
+        background-size: cover;
+    }
+    .box-label{
+        font-size: 12px;
+    }
+    .box-price{
+        margin-top: -7px;
+        font-size: 10px;
+        color: $color0;
+        opacity: 0.5;
+    }
+}
+
+.list-box{
+    display: flex;
+    flex-wrap: wrap;
+    padding-right: 12px;
+}
+
+.add-box{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    border: 0;
+    background: rgba(0, 0, 0, 0.55);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.add-input-box{
+    height: 320px;
+    background: $color2;
+    border-radius: 4px;
+    padding: 26px;
+    box-shadow: 2px 2px $shadow;
+}
+
+.input-add{
+    height: 40px;
+    margin-bottom: 14px;
+    text-align: right;
+    padding-right: 0px;
+    padding-right: 10px;
+    font-size: 36px;
+    width: 210px;
+    background: lightgray;
+    border: 0px;
+    box-shadow: 2px 2px $shadow;
+}

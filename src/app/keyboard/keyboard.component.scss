@@ -1,0 +1,28 @@
+@import './src/colors.scss';
+
+.keypad{
+    width: 50px;
+    max-width: 50px;
+    height: 50px;
+    background: $color1;
+    margin: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    color: $color0;
+    box-shadow: 2px 2px $shadow;
+    cursor: pointer;
+    transition: all .2s ease;
+    &:hover{
+        background: $focus;
+    }
+}
+.keypad-clear{
+    width: 105px;
+    max-width: 105px;
+    color: $accent;
+    &:hover{
+        color: $color0; 
+    }
+}

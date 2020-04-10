@@ -1,0 +1,88 @@
+/* You can add global styles to this file, and also import other style files */
+@import './flex.scss';
+@import './colors.scss';
+
+html, body{
+    height: 100%;
+    margin: 0px;
+    font-family: 'Baloo Paaji 2', cursive;
+    overflow: hidden;
+    user-select: none; 
+}
+
+.main-container{
+    background-color: $color1;
+    height: 100%;
+}
+
+.super-box{
+    background-color: $color2;
+    border-radius: 8px;
+    color: $color0;
+    box-shadow: 2px 2px $shadow;
+}
+
+
+.title-2{ 
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.text-2{
+    opacity: .7;
+    font-size: 13px;
+}
+
+.text-1{
+    font-size: 13px;
+    font-weight: bold;
+    
+}
+
+.act-button{
+    // background-color: $accent;
+    color: white;
+    border: 0px;
+    padding: 6px 12px;
+    border-radius: 100px;
+    width: 106px;
+    border: 1px solid $color0;
+    background-color: transparent;
+    transition: all .2s ease;
+    cursor: pointer;
+    &:hover:not(:disabled), &:focus:not(:disabled){
+        background: $focus;
+    }
+    &:disabled{
+        opacity: 0.5;
+    }
+}
+.act-accent{
+    background-color: $accent;
+    border: 1px solid transparent !important;
+}
+
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 12px;
+    
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: $color1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $accent; 
+    border-radius: 100px;
+    margin-left: 8px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: $focus; 
+  }

@@ -1,0 +1,76 @@
+@import './src/colors.scss';
+
+
+.order-list-header{
+    font-weight: 600;
+    font-size: 13px;
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid;
+}
+
+.order-box{
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    color: white;
+    font-size: 14px;
+    opacity: 0.7;
+    padding-left: 12px;
+    padding-right: 12px;
+    cursor: pointer;
+    transition: all .2s ease;
+    &:hover{
+        opacity: 1;
+        background: $focus;
+        >.order-remove{
+            width: 20px;
+            color: red;;
+        }
+    }
+}
+
+.order-remove{
+    width: 0px;
+    color: transparent;
+    transition: all .2s ease;
+}
+
+.order-total{
+    border-top: 1px dashed #ffffff8c;
+    margin-top: 12px;
+    margin-right: 12px;
+    padding-top: 2px;
+    margin-bottom: 4px;
+}
+
+
+
+.action-buttons{
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.alertRemove{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alertRemove-box{
+    background: $color1;
+    padding: 18px;
+    border-radius: 4px;
+    box-shadow: 2px 2px $shadow;
+    color: $color0;
+    text-align: center;
+}

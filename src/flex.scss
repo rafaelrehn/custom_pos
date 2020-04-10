@@ -1,0 +1,63 @@
+.flex{ display: flex;}
+.flex-column{ display: flex; flex-direction: column;}
+.justify-between{    justify-content: space-between;}
+.justify-center{    justify-content: center;}
+.align-center{    align-items: center;}
+.text-left{text-align: left;}
+
+.text-uppercase{
+    text-transform: uppercase;;
+}
+
+@for $i from 1 through 4{
+    .flex-#{$i}{ flex: $i;}
+}
+
+@for $i from 1 through 20 {
+    .m-#{$i*4}{  margin: $i*4px }
+    .mr-#{$i*4}{ margin-right: $i*4px }
+    .ml-#{$i*4}{ margin-left: $i*4px }
+    .mt-#{$i*4}{ margin-top: $i*4px }
+    .mb-#{$i*4}{ margin-bottom: $i*4px }
+}
+
+@for $i from 1 through 20 {
+    .p-#{$i*4}{  padding: $i*4px }
+    .pr-#{$i*4}{ padding-right: $i*4px }
+    .pl-#{$i*4}{ padding-left: $i*4px }
+    .pt-#{$i*4}{ padding-top: $i*4px }
+    .pb-#{$i*4}{ padding-bottom: $i*4px }
+}
+
+@for $i from 1 through 20 {
+    .w-#{$i*4}{  width: $i*4px; max-width: $i*4px; min-width: $i*4px }
+}
+
+@for $i from 1 through 20{
+    .br-#{$i*4}{ border-radius: $i*4px}
+}
+
+@for $i from 1 through 10{
+    .h-#{$i*10}-p{
+        height: $i*10%;
+    }
+}
+
+.overflow-auto{ overflow: auto; } 
+.overflowy-scroll{ overflow-y: scroll; }  
+.text-right{text-align: right;} 
+.overflow-hidden{ overflow: hidden;}
+.flex-wrap{ flex-wrap: wrap;}
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

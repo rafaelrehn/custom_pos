@@ -1,0 +1,97 @@
+<div class="super-box flex-column flex-1 h-100-p">
+    <div class="mb-16 mt-12 ml-12 title-2 flex-column">Bill</div>
+
+    <div class="order-list-header flex">
+        <div class="flex-1">Order</div>
+        <div class="mr-48">Quantity</div>
+        <div>Price</div>
+    </div>
+
+    <div class="flex-1 h-100-p"  style="overflow-y: auto;">
+        <div class="order-box mt-4 flex" *ngFor="let item of _service.orderList ; let i = index"
+            (click)="remove(item)">
+            <div class="order-remove">X</div>
+            <div class="flex-1">{{item.name}}</div>
+            <div class="mr-48 w-36 text-right">{{item.qtd}}</div>
+            <div class="w-36 text-right">{{item.price}}</div>
+        </div>
+    </div>
+
+    <div class="order-total ml-12 flex">
+        <div class="flex-1">
+            <div class="text-2">Subtotal</div>
+            <div class="text-2">Taxes ({{_service.taxes}}%)</div>
+            <div class="text-1 text-uppercase">Total</div>
+        </div>
+        <div class="text-right">
+            <div class="text-2">{{subtotal()}}</div>
+            <div class="text-2">{{taxes()}}</div>
+            <div class="text-1 text-uppercase">{{total()}}</div>
+        </div>
+    </div>
+
+    <div class="action-buttons">
+        <button class="act-button" (click)="actionBtn('new')"
+        [disabled]="_service.orderList.length == 0">New Order</button>
+        <button class="act-button act-accent" (click)="actionBtn('checkout')"
+        [disabled]="_service.orderList.length == 0">Checkout</button>
+    </div>
+</div>
+
+<div class="alertRemove" *ngIf="alertRemove">
+    <div class="alertRemove-box">
+        <div class="alertRemove-message">
+            <div><i class="fa fa-trash-o" style="font-size: 60px;"></i></div>
+            <div>Remove item?</div>
+        </div>
+        <div class="flex">
+            <div class="flex mt-24">
+                <button class="act-button mr-4" (click)="alertBtn('cancel')"
+                >Cancel</button>
+                <button class="act-button act-accent ml-4" (click)="alertBtn('confirm')">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="alertRemove" *ngIf="alertCancelOrder">
+    <div class="alertRemove-box">
+        <div class="alertRemove-message">
+            <div><i class="fa fa-trash-o" style="font-size: 60px;"></i></div>
+            <div>Cancel all actual order?</div>
+        </div>
+        <div class="flex">
+            <div class="flex mt-24">
+                <button class="act-button mr-4" (click)="cancelOrder('cancel')">Cancel</button>
+                <button class="act-button act-accent ml-4" (click)="cancelOrder('confirm')">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="alertRemove" *ngIf="checkoutAlert">
+    <div class="alertRemove-box">
+        <div class="alertRemove-message">
+            <div><i class="fa fa-shopping-cart" style="font-size: 60px;"></i></div>
+            <div>Confirm checkout?</div>
+        </div>
+        <div class="flex text-left">
+            <div class="flex-1">
+                <div class="text-2">Subtotal</div>
+                <div class="text-2">Taxes ({{_service.taxes}}%)</div>
+                <div class="text-1 text-uppercase">Total</div>
+            </div>
+            <div class="text-right">
+                <div class="text-2">{{subtotal()}}</div>
+                <div class="text-2">{{taxes()}}</div>
+                <div class="text-1 text-uppercase">{{total()}}</div>
+            </div>
+        </div>
+        <div class="flex">
+            <div class="flex mt-24">
+                <button class="act-button mr-4" (click)="checkoutEvt('cancel')">Cancel</button>
+                <button class="act-button act-accent ml-4" (click)="checkoutEvt('confirm')">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
