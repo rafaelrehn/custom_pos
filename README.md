@@ -5,6 +5,7 @@ Layout demonstração de um PDV  para lancherias / restaurante
 
 ## A desenvolver
 - Adicionar animações de transições nas ações de usuário
-- Adicioanr regras de negócio para movimento do caixa
+- Adicionar regras de negócio para movimento do caixa
+- Rever bug upload imagens pro gh-pages
 
 
