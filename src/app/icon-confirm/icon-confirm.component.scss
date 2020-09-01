@@ -1,0 +1,129 @@
+@import './src/colors.scss';
+
+$wh: 66px;
+$main-color: $accent;
+$light-color: lightgrey;
+$contrast-color: $color1;
+
+.radial{
+width: 66px;
+    height: 66px; 
+    background: radial-gradient($main-color 2%, $contrast-color 4%, $contrast-color 6%, $main-color 6%);
+    border-radius: 100%;
+    animation: flux 2s linear;
+  animation-fill-mode: forwards;
+}
+@keyframes flux{
+  @for $i from 1 through 100{
+    #{$i}%{background: radial-gradient(red ($i*1% + 2%), $contrast-color ($i*1% + 4%), $contrast-color ($i*1% + 6%), red ($i*1% + 6%));}
+  }
+}
+.c-main{
+  width: $wh;
+  height: $wh;
+  border-radius: 100%;
+  background-image: conic-gradient($main-color 0%, $light-color 0%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;  
+  position: relative;
+  // transform: scale(1.5);
+  animation: conic-gradient 2s linear;
+  animation-delay: 0.2s;
+  animation-fill-mode: forwards;
+  // animation-iteration-count: infinite;  
+}
+.c-main-fill{
+  background: $contrast-color;
+  width: $wh - 6px;
+ height: $wh - 6px;
+  border-radius: 100%;
+  position: absolute;
+  top: 3px;
+  right: 3px;
+}
+.c-main-flash-out{ 
+  width: $wh + 6px;
+ height: $wh + 6px;
+  border-radius: 100%;
+  position: absolute;
+  background: $main-color;
+  top: 0px;
+  right: 0px;
+  animation: flash-out .1s ease-out;
+  animation-fill-mode: forwards;
+  // animation-iteration-count: infinite;  
+}
+.c-main-flash-in{
+  width: 66px;
+ height: 66px;
+  border-radius: 100%;
+  position: absolute;
+  transform: scale(0);
+  background: radial-gradient($main-color 10%, $contrast-color 10%, $main-color 100%, $main-color 10%);
+  top: 0px;
+  right: 0px;
+  animation: flash-in 1.8s ease-out;
+  animation-fill-mode: forwards;
+  animation-delay: 2.3s;
+  // animation-iteration-count: infinite;  
+}
+.c-set{
+width: 10px;
+    height: 10px;
+    border-top: 5px solid $main-color;
+    border-right: 5px solid $main-color;
+    position: absolute;
+    top: 26px;
+    right: 27px;
+    transform: rotate(-45deg);
+    animation: c-set 2s linear; 
+  animation-delay: 0.2s;
+  animation-fill-mode: forwards;
+  // animation-iteration-count: infinite; 
+}
+.c-checked{
+    width: 20px;
+    height: 10px;
+    border-top: 5px solid $contrast-color;
+    border-right: 5px solid $contrast-color;
+    position: absolute;
+    top: 22px;
+    right: 20px; 
+    transform: scale(0) rotate(-225deg);
+    animation: c-checked .2s cubic-bezier(.4,1.29,.67,1.53); 
+  animation-delay: 2.3s;
+  animation-fill-mode: forwards;
+  // animation-iteration-count: infinite;  
+}
+
+@keyframes c-checked{
+  from{transform: scale(0) rotate(-225deg)}
+  to{transform: scale(1) rotate(-225deg)}
+}
+@keyframes c-set{
+  from{transform: rotate(-45deg)}
+  to{transform: rotate(315deg)}
+}
+
+@keyframes conic-gradient{
+  @for $i from 1 through 100{
+    #{$i}%{background-image: conic-gradient($main-color $i * 1%, $light-color $i * 1%);} 
+  }
+}
+
+@keyframes flash-out{
+  from{transform: scale(1)}
+  to{transform: scale(0)}
+}
+@keyframes flash-in{
+    @for $i from 1 through 100{
+    #{$i}%{
+      transform: scale($i);
+      background: radial-gradient($main-color ($i*1% + 2%), $contrast-color ($i*1% + 4%), $contrast-color ($i*1% + 6%), $main-color ($i*1% + 6%));
+      }
+  }
+  // from{transform: scale(0)}
+  // to{transform: scale(1)}
+}
