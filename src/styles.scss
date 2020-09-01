@@ -30,26 +30,26 @@ html, body{
 
 .text-2{
     opacity: .7;
-    font-size: 13px;
+    font-size: 18px;
 }
 
 .text-1{
-    font-size: 13px;
+    font-size: 24px;
     font-weight: bold;
     
 }
 
 .act-button{
-    // background-color: $accent;
-    color: white;
+    color: $color0;
     border: 0px;
     padding: 6px 12px;
     border-radius: 100px;
-    width: 106px;
+    width: 180px;
     border: 1px solid $color0;
     background-color: transparent;
-    transition: all .2s ease;
+    transition: all 0.2s ease;
     cursor: pointer;
+    font-size: 19px;
     &:hover:not(:disabled), &:focus:not(:disabled){
         background: $focus;
     }

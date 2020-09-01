@@ -16,9 +16,9 @@ export class OrderListService {
 
   addCart(item: any, qtd?: number){
     const _quantity = qtd || 1
-    const _total = _quantity*item.price
-    const _taxes = _total*this.taxes
-    this.orderList.push(
+    const _total = this.returnParsed(_quantity*item.price)
+    const _taxes = this.returnParsed(_total*this.taxes)
+    this.orderList.unshift(
       Object.assign({},item, 
         {
           qtd: _quantity, 
@@ -55,5 +55,9 @@ export class OrderListService {
     }))
     console.log('checkoutList', this.checkoutList)
     this.cancelOrder()
+  }
+
+  returnParsed(number: number){
+    return parseFloat((number).toFixed(2))
   }
 }

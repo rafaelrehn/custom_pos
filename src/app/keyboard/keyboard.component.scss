@@ -1,9 +1,9 @@
 @import './src/colors.scss';
 
 .keypad{
-    width: 50px;
-    max-width: 50px;
-    height: 50px;
+    width: 75px;
+    max-width: 75px;
+    height: 75px;
     background: $color1;
     margin: 2px;
     display: flex;
@@ -19,8 +19,8 @@
     }
 }
 .keypad-clear{
-    width: 105px;
-    max-width: 105px;
+    width: 152px;
+    max-width: 152px;
     color: $accent;
     &:hover{
         color: $color0; 

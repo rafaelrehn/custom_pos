@@ -1,11 +1,40 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { OrderListService } from '../order-list.service';
 import { ArrayListItems } from '../list-item';
+import { trigger, transition, style, animate, stagger, query, animation } from '@angular/animations';
+import { box, popUpBox } from '../animations';
+
+
 
 @Component({
   selector: 'app-list-items',
   templateUrl: './list-items.component.html',
-  styleUrls: ['./list-items.component.scss']
+  styleUrls: ['./list-items.component.scss'],
+  animations: [
+    box,
+    popUpBox,
+     trigger('listAnimation', [
+       transition('*=>*', [
+         query(':enter',[
+           style({ opacity: 0}),
+           stagger(100, [ 
+            animate('150ms ease-in', style({opacity: 0.8}))
+           ])
+         ])
+       ])
+     ])
+  ]
+  // animations: [
+  //   trigger('numberKeyboard', [
+  //     transition(':enter', [
+  //       style({ opacity: 0 }),
+  //       animate('100ms', style({ opacity: 1 })),
+  //     ]),
+  //     transition(':leave', [
+  //       animate('100ms', style({ opacity: 0 }))
+  //     ])
+  //   ]),
+  // ]
 })
 export class ListItemsComponent implements OnInit {
 

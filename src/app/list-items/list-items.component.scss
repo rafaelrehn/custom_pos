@@ -1,12 +1,12 @@
 @import './src/colors.scss';
 
 .box-item{
-    height: 140px;
+    height: 220px;
     background-color: $color3;
     margin-left: 12px;
     margin-bottom: 12px;
-    max-width: 140px;
-    min-width: 110px;
+    max-width: 220px;
+    min-width: 180px;
     flex: 1;
     border-radius: 8px;
     overflow: hidden;
@@ -20,16 +20,16 @@
     }
     .box-img{
         
-        height: 102px;
+        height: 165px;
         background-position: center;
         background-size: cover;
     }
     .box-label{
-        font-size: 12px;
+        font-size: 18px;
     }
     .box-price{
-        margin-top: -7px;
-        font-size: 10px;
+        margin-top: -9px;
+        font-size: 16px;
         color: $color0;
         opacity: 0.5;
     }
@@ -51,24 +51,28 @@
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; 
 }
 .add-input-box{
-    height: 320px;
+    // height: 320px;
     background: $color2;
     border-radius: 4px;
     padding: 26px;
-    box-shadow: 2px 2px $shadow;
+    // box-shadow: 2px 2px $shadow;
+    box-shadow: $cool-shadow;
+    animation: $shadow-animation;
+    padding: 24px;
+    
 }
 
 .input-add{
-    height: 40px;
+    height: 60px;
     margin-bottom: 14px;
     text-align: right;
     padding-right: 0px;
     padding-right: 10px;
-    font-size: 36px;
-    width: 210px;
+    font-size: 60px;
+    width: 310px;
     background: lightgray;
     border: 0px;
     box-shadow: 2px 2px $shadow;

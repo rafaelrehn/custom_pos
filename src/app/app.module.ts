@@ -10,6 +10,8 @@ import { CreditCardComponent } from './credit-card/credit-card.component';
 import { FiltroProdutosComponent } from './filtro-produtos/filtro-produtos.component';
 import { KeyboardComponent } from './keyboard/keyboard.component';
 import { FormsModule }   from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { IconConfirmModule } from './icon-confirm/icon-confirm.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { FormsModule }   from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule 
+    FormsModule,
+    BrowserAnimationsModule,
+    IconConfirmModule
   ],
   providers: [],
   bootstrap: [AppComponent]

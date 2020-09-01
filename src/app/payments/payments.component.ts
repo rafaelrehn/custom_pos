@@ -1,13 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Observer } from 'rxjs';
 import { OrderListService } from '../order-list.service';
+import { trigger, transition, query, style, stagger, animate, animation } from '@angular/animations';
+import { popUpBox, box } from '../animations';
 
 var formato = { minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' }
 
 @Component({
   selector: 'app-payments',
   templateUrl: './payments.component.html',
-  styleUrls: ['./payments.component.scss']
+  styleUrls: ['./payments.component.scss'],
+  animations: [
+    trigger('listAnimation', [
+      transition('*=>*', [
+        query(':enter', [
+          style({ background: 'transparent', opacity: 0.7}),
+          stagger(35, [ 
+           animate('130ms ease-in', style({background: '#fc9117', opacity: 1})),
+           animate('130ms ease-in', style({background: 'transparent', opacity: 1})),
+           animate('130ms ease-in', style({background: '#fc9117', opacity: 1})),
+           animate('130ms ease-in', style({background: 'transparent', opacity: 0.7})),
+          ])
+        ], { optional: true }),
+        query(':leave', [
+          style({opacity: 0.7, transform: 'translateY(0px)'}),
+          stagger(-100, [
+            animate('150ms ease-out', style({opacity: 0, transform: 'translateY(20px)'}))
+          ])
+        ], {optional: true})
+      ])
+    ]),
+    popUpBox,
+    box
+  ]
 })
 export class PaymentsComponent implements OnInit {
 
@@ -17,6 +42,9 @@ export class PaymentsComponent implements OnInit {
 
   alertCancelOrder = false
   checkoutAlert = false
+  checkingOutAlert = false
+
+  confirming = false;
 
   constructor(
     public _service: OrderListService
@@ -65,7 +93,12 @@ export class PaymentsComponent implements OnInit {
   }
 
   cancelEvent(){
+    this.confirming = true;
     this._service.cancelOrder()
+    setTimeout(()=>{
+      this.confirming = false;
+      this.alertCancelOrder = false
+    }, 1000)
   }
 
   alertBtn(evt: 'cancel'|'confirm'){
@@ -92,7 +125,7 @@ export class PaymentsComponent implements OnInit {
     switch (evt) {
       case 'confirm':
         this.cancelEvent()
-        this.alertCancelOrder = false
+        
         break;
       case 'cancel':
         this.alertCancelOrder = false
@@ -119,11 +152,17 @@ export class PaymentsComponent implements OnInit {
   }
 
   goCheckout(){
+    this.checkingOutAlert = true
+    console.log('checkingOutAlert', this.checkingOutAlert)
     const subtotal = this._service.orderList.map(item=>item.total).reduce((a,b)=>{return a+b},0 )
     const taxes = this._service.orderList.map(item=>item.taxes).reduce((a,b)=>{return a+b},0 )
     const total = subtotal+taxes
 
     this._service.confirmCheckout(subtotal, taxes, total)
+
+    setTimeout(()=>{
+      this.checkingOutAlert = false
+    }, 3000)
   }
 
 }

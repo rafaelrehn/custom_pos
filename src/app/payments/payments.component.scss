@@ -2,8 +2,9 @@
 
 
 .order-list-header{
+    @extend .text-2 !optional;
+    font-size: 18px;
     font-weight: 600;
-    font-size: 13px;
     margin-left: 12px;
     margin-right: 12px;
     margin-bottom: 12px;
@@ -11,12 +12,14 @@
 }
 
 .order-box{
+    @extend .text-1 !optional;
+    font-size: 15px;
     height: 20px;
     display: flex;
     align-items: center;
     justify-content: left;
     color: white;
-    font-size: 14px;
+    
     opacity: 0.7;
     padding-left: 12px;
     padding-right: 12px;
@@ -68,9 +71,82 @@
 
 .alertRemove-box{
     background: $color1;
-    padding: 18px;
+    padding: 64px;
     border-radius: 4px;
-    box-shadow: 2px 2px $shadow;
+    // box-shadow: 2px 2px $shadow;
+    box-shadow: $cool-shadow;
+    animation: $shadow-animation;
     color: $color0;
     text-align: center;
+    font-size: 24px;;
 }
+
+
+// icons ////////////////////
+
+.icon-main{
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+    transform: scale(1);
+    animation: pop-up 0.5s cubic-bezier(.32, 1.9, .70, 1);   display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 8px; 
+    box-shadow: 0px 0px 9px -2px rgba(0,0,0,0.3);
+  }
+  .a-main{  
+    background: $focus;
+  }
+  .c-main{
+    background: $accent;
+  }
+  .c-icon{
+    width: 30px;
+    height: 20px;
+    border-bottom: 10px solid white;
+    border-left: 10px solid white;
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 16px;
+    animation: c-icon .5s linear;
+  /*   animation-delay: 0.5s; */
+  }
+  
+  @keyframes c-icon{
+    0%{transform: scale(0) rotate(-45deg)}
+    10%{transform: scale(.1) rotate(45deg)}
+    20%{transform: scale(.2) rotate(135deg)}
+    30%{transform: scale(.3) rotate(225deg)}
+    40%{transform: scale(.4) rotate(315deg)}
+    50%{transform: scale(.5) rotate(-45deg)}
+    60%{transform: scale(.6) rotate(45deg)}
+    70%{transform: scale(.7) rotate(135deg)}
+    80%{transform: scale(.8) rotate(225deg)}
+    90%{transform: scale(1) rotate(315deg)}
+  }
+  
+  @keyframes pop-up{
+    from{ transform: scale(0); }
+    to{ transform: scale(1); }
+  }
+  
+  .a-icon{
+    width: 9px;
+    height: 40px;
+    background: linear-gradient(white 65%, $focus 65%, $focus 75%, white 75%);
+    animation: a-icon .5s linear; 
+    animation-delay: 0.5s;
+  /*   animation-iteration-count: 3;  */
+  }
+  
+  @keyframes a-icon {
+    0%{ transform: rotate(0deg); }
+    10%{ transform: rotate(15deg); }
+    20%{ transform: rotate(-15deg); }
+    30%{ transform: rotate(0deg); }
+    40%{ transform: rotate(15deg); }
+    50%{ transform: rotate(-15deg); }
+    60%{ transform: rotate(0deg); }
+  }

@@ -3,7 +3,16 @@
 .justify-between{    justify-content: space-between;}
 .justify-center{    justify-content: center;}
 .align-center{    align-items: center;}
+.center-center{
+    display: flex;;
+    align-items: center;
+    justify-content: center;
+}
 .text-left{text-align: left;}
+.text-center{text-align: center;}
+.overflow-y-scroll{
+    overflow-y: scroll !important;
+}
 
 .text-uppercase{
     text-transform: uppercase;;
@@ -29,7 +38,7 @@
     .pb-#{$i*4}{ padding-bottom: $i*4px }
 }
 
-@for $i from 1 through 20 {
+@for $i from 1 through 60 {
     .w-#{$i*4}{  width: $i*4px; max-width: $i*4px; min-width: $i*4px }
 }
 

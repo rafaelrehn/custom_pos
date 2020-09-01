@@ -5,5 +5,48 @@ $color3: #553b93;
 
 $shadow: #26164a;
 
+$cool-shadow: 5px 5px rgba(0, 98, 90, 0.4);
+
 $accent: #15c470;
 $focus: #fc9117;
+
+$shadow-animation: shadow-animation 1s ease 0s 1 normal forwards;
+.as{
+    animation: name duration timing-function delay iteration-count direction fill-mode;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+}
+
+@keyframes shadow-animation{
+    0%{
+        box-shadow: 5px 5px rgba(0, 98, 90, 0.0);
+    }
+    20%{
+        box-shadow: 5px 5px rgba(0, 98, 90, 0.4);
+    }
+    40%{
+        box-shadow: 
+        5px 5px rgba(0, 98, 90, 0.4), 
+        10px 10px rgba(0, 98, 90, 0.3);
+    }
+    60%{
+        box-shadow: 
+        5px 5px rgba(0, 98, 90, 0.4), 
+        10px 10px rgba(0, 98, 90, 0.3), 
+        15px 15px rgba(0, 98, 90, 0.2);
+    }
+    80%{
+        box-shadow: 
+        5px 5px rgba(0, 98, 90, 0.4), 
+        10px 10px rgba(0, 98, 90, 0.3), 
+        15px 15px rgba(0, 98, 90, 0.2), 
+        20px 20px rgba(0, 98, 90, 0.1);
+    }
+    100%{
+        box-shadow: 5px 5px rgba(0, 98, 90, 0.4),
+        10px 10px rgba(0, 98, 90, 0.3),
+        15px 15px rgba(0, 98, 90, 0.2),
+        20px 20px rgba(0, 98, 90, 0.1),
+        25px 25px rgba(0, 98, 90, 0.05);
+    }
+}

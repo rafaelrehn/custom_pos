@@ -13,3 +13,22 @@
         opacity: 1;
     }
 }
+
+
+.list-prod{
+    width: 100%;
+    height: 120px;
+    /* border: 1px solid lightgrey; */
+    margin-bottom: 8px;
+    border-radius: 8px;
+    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $color1;
+    &:hover{
+        // background: $focus;
+        // color: $color0; 
+        opacity: 1;
+    }
+}

@@ -1,19 +1,21 @@
 <div class="super-box flex-column flex-1 h-100-p">
-    <div class="mb-16 mt-12 ml-12 title-2 flex-column">Bill</div>
+    <div class="mt-12 ml-12 title-2 flex-column">Bill</div>
 
     <div class="order-list-header flex">
         <div class="flex-1">Order</div>
-        <div class="mr-48">Quantity</div>
-        <div>Price</div>
+        <div class="w-80 ml-8">Quantity</div>
+        <div class="w-80 ml-8">Price</div> 
+        <div class="w-40 ml-8">$</div>
     </div>
 
-    <div class="flex-1 h-100-p"  style="overflow-y: auto;">
+    <div class="flex-1 h-100-p"  style="overflow-y: auto;" [@listAnimation]="_service.orderList.length">
         <div class="order-box mt-4 flex" *ngFor="let item of _service.orderList ; let i = index"
             (click)="remove(item)">
             <div class="order-remove">X</div>
             <div class="flex-1">{{item.name}}</div>
-            <div class="mr-48 w-36 text-right">{{item.qtd}}</div>
-            <div class="w-36 text-right">{{item.price}}</div>
+            <div class="w-80 ml-8 text-right">{{item.qtd}}</div>
+            <div class="w-80 ml-8 text-right">{{item.price}}</div>
+            <div class="w-80 ml-8 text-right">{{item.total}}</div>
         </div>
     </div>
 
@@ -33,13 +35,13 @@
     <div class="action-buttons">
         <button class="act-button" (click)="actionBtn('new')"
         [disabled]="_service.orderList.length == 0">New Order</button>
-        <button class="act-button act-accent" (click)="actionBtn('checkout')"
+        <button class="act-button act-accent ml-8" (click)="actionBtn('checkout')"
         [disabled]="_service.orderList.length == 0">Checkout</button>
     </div>
 </div>
 
-<div class="alertRemove" *ngIf="alertRemove">
-    <div class="alertRemove-box">
+<div class="alertRemove" *ngIf="alertRemove" @popUpBox>
+    <div class="alertRemove-box" @box>
         <div class="alertRemove-message">
             <div><i class="fa fa-trash-o" style="font-size: 60px;"></i></div>
             <div>Remove item?</div>
@@ -54,23 +56,37 @@
     </div>
 </div>
 
-<div class="alertRemove" *ngIf="alertCancelOrder">
-    <div class="alertRemove-box">
+<div class="alertRemove" *ngIf="alertCancelOrder" @popUpBox>
+    <div class="alertRemove-box" @box>
         <div class="alertRemove-message">
-            <div><i class="fa fa-trash-o" style="font-size: 60px;"></i></div>
+            <!-- <div><i class="fa fa-trash-o" style="font-size: 60px;"></i></div> -->
+            <div class="center-center mb-24">
+                <div class="icon-main a-main" *ngIf="!confirming">
+                    <div class="a-icon"></div>
+                </div>
+                <div class="icon-main c-main" *ngIf="confirming">
+                    <div class="c-icon"></div> 
+                </div> 
+            </div>
             <div>Cancel all actual order?</div>
         </div>
         <div class="flex">
             <div class="flex mt-24">
-                <button class="act-button mr-4" (click)="cancelOrder('cancel')">Cancel</button>
-                <button class="act-button act-accent ml-4" (click)="cancelOrder('confirm')">Confirm</button>
+                <button *ngIf="!confirming" class="act-button mr-4" (click)="cancelOrder('cancel')" >Cancel</button>
+                <button *ngIf="!confirming" class="act-button act-accent ml-4" (click)="cancelOrder('confirm')">Confirm</button>
             </div>
         </div>
     </div>
 </div>
 
-<div class="alertRemove" *ngIf="checkoutAlert">
-    <div class="alertRemove-box">
+<div class="alertRemove" *ngIf="checkingOutAlert" @popUpBox>
+    <div class="alertRemove-box" @box style="padding: 48px">
+        <app-icon-confirm></app-icon-confirm>
+    </div>
+</div>
+
+<div class="alertRemove" *ngIf="checkoutAlert" @popUpBox>
+    <div class="alertRemove-box" @box>
         <div class="alertRemove-message">
             <div><i class="fa fa-shopping-cart" style="font-size: 60px;"></i></div>
             <div>Confirm checkout?</div>
